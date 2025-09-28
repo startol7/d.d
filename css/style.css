@@ -1,0 +1,8 @@
+# ディレクトリ構造を作成
+mkdir css js
+
+# ファイルをそれぞれの場所に保存
+# index.html → ルートディレクトリ
+# style.css → css/style.css
+# main.js → js/main.js
+# README.md → ルートディレクトリ
