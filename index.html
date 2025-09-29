@@ -3,13 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="D.D. shibuya - 渋谷のメンズサロン美容室。トレンドを押さえた高品質なヘアスタイリングを提供">
-    <meta name="keywords" content="美容室,メンズサロン,渋谷,ヘアサロン,D.D.,ダダ">
-    <title>D.D. shibuya | 渋谷のメンズサロン美容室</title>
+    <meta name="description" content="D.D. - 渋谷神南のメンズサロン美容室。お洒落のスタートライン、最高のクオリティをお約束">
+    <meta name="keywords" content="美容室,メンズサロン,渋谷,神南,ヘアサロン,D.D.">
+    <title>D.D. | 渋谷神南のメンズサロン美容室</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* 画像を直接埋め込む暫定スタイル */
+        .hero {
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQ...');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .interior-image {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a1a1a, #3a3a3a);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .interior-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 2px,
+                rgba(255,255,255,0.03) 2px,
+                rgba(255,255,255,0.03) 4px
+            );
+        }
+        
+        .interior-image::after {
+            content: 'MODERN INTERIOR';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+            color: rgba(201, 169, 97, 0.1);
+            letter-spacing: 10px;
+            font-weight: 700;
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -38,7 +83,6 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="hero-bg-image"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1 class="hero-title">
@@ -47,9 +91,9 @@
             </h1>
             <p class="hero-subtitle">MENS SALON & BEAUTY</p>
             <div class="hero-description">
-                <p>完全個室のプライベート空間で、最高のスタイリング体験を</p>
+                <p>お洒落のスタートライン、最高のクオリティをお約束</p>
             </div>
-            <a href="#contact" class="cta-button">
+            <a href="https://a2ywf7-google.b-merit.jp/j26zns/web/" target="_blank" class="cta-button">
                 <span>RESERVE NOW</span>
                 <svg class="button-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
                     <path d="M7 10H13M13 10L10 7M13 10L10 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -70,35 +114,36 @@
             </h2>
             <div class="about-content">
                 <div class="about-text">
-                    <h3 class="about-heading">渋谷の隠れ家メンズサロン</h3>
+                    <h3 class="about-heading">渋谷神南の隠れ家サロン</h3>
                     <p class="about-paragraph">
-                        D.D. shibuyaは、都会の喧騒から離れた落ち着いた空間で、
-                        最高のヘアスタイリング体験をお届けします。
+                        D.D.は、渋谷の中心地でありながら落ち着いた雰囲気の神南エリアに位置する、
+                        こだわりのメンズサロンです。
                     </p>
                     <p class="about-paragraph">
-                        経験豊富なスタイリストが、お客様一人ひとりの個性を最大限に引き出すスタイルをご提案。
-                        トレンドを押さえながらも、ライフスタイルに合わせた再現性の高いカットを心がけています。
+                        経験豊富なスタイリスト陣が、お客様一人ひとりの個性とライフスタイルに合わせた
+                        「本当のカッコイイ」をご提案。トレンドを押さえながらも、
+                        日常で再現しやすいスタイルを心がけています。
                     </p>
                     <div class="about-features">
                         <div class="feature-item">
                             <span class="feature-number">01</span>
-                            <h4>完全個室空間</h4>
-                            <p>プライバシーを重視した贅沢な空間</p>
+                            <h4>経験豊富なスタッフ</h4>
+                            <p>5年以上のキャリアを持つプロフェッショナル集団</p>
                         </div>
                         <div class="feature-item">
                             <span class="feature-number">02</span>
-                            <h4>経験豊富なスタッフ</h4>
-                            <p>10年以上のキャリアを持つプロフェッショナル</p>
+                            <h4>こだわりの技術</h4>
+                            <p>カット、カラー、パーマ、縮毛矯正まで幅広く対応</p>
                         </div>
                         <div class="feature-item">
                             <span class="feature-number">03</span>
-                            <h4>最新トレンド</h4>
-                            <p>世界の最新トレンドを常にキャッチアップ</p>
+                            <h4>アクセス良好</h4>
+                            <p>渋谷駅から徒歩圏内、神南の好立地</p>
                         </div>
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="images/interior-main.jpg" alt="D.D. shibuya 店内" loading="lazy">
+                    <div class="interior-image"></div>
                 </div>
             </div>
         </div>
@@ -112,54 +157,54 @@
                 <span class="title-jp">メニュー</span>
             </h2>
             <div class="services-grid">
-                <div class="service-card">
+                <div class="service-card featured">
                     <div class="service-number">01</div>
                     <h3>CUT</h3>
-                    <p class="service-jp">カット</p>
-                    <p class="service-description">骨格や髪質に合わせた、再現性の高いカットをご提供します。</p>
-                    <div class="service-price">
-                        <span class="price-label">FROM</span>
-                        <span class="price-value">¥5,500</span>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-number">02</div>
-                    <h3>COLOR</h3>
-                    <p class="service-jp">カラー</p>
-                    <p class="service-description">トレンドカラーから、ナチュラルな白髪染めまで幅広く対応。</p>
+                    <p class="service-jp">カット＋メニュー相談</p>
+                    <p class="service-description">骨格や髪質に合わせた、お洒落のスタートラインをご提供。当日のメニュー相談も承ります。</p>
                     <div class="service-price">
                         <span class="price-label">FROM</span>
                         <span class="price-value">¥6,600</span>
                     </div>
                 </div>
                 <div class="service-card">
-                    <div class="service-number">03</div>
-                    <h3>PERM</h3>
-                    <p class="service-jp">パーマ</p>
-                    <p class="service-description">自然な動きとボリュームを演出する、ダメージレスパーマ。</p>
+                    <div class="service-number">02</div>
+                    <h3>COLOR</h3>
+                    <p class="service-jp">カラー</p>
+                    <p class="service-description">トレンドカラーから白髪染め、ハイライトやバレイヤージュなどの特殊カラーまで対応。</p>
                     <div class="service-price">
                         <span class="price-label">FROM</span>
                         <span class="price-value">¥7,700</span>
                     </div>
                 </div>
                 <div class="service-card">
+                    <div class="service-number">03</div>
+                    <h3>PERM</h3>
+                    <p class="service-jp">パーマ</p>
+                    <p class="service-description">自然な動きとボリュームを演出。ダメージを最小限に抑えた施術。</p>
+                    <div class="service-price">
+                        <span class="price-label">FROM</span>
+                        <span class="price-value">¥8,800</span>
+                    </div>
+                </div>
+                <div class="service-card">
                     <div class="service-number">04</div>
+                    <h3>STRAIGHTENING</h3>
+                    <p class="service-jp">縮毛矯正</p>
+                    <p class="service-description">自然なストレートヘアを実現。髪質改善効果も期待できます。</p>
+                    <div class="service-price">
+                        <span class="price-label">FROM</span>
+                        <span class="price-value">¥15,400</span>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-number">05</div>
                     <h3>TREATMENT</h3>
                     <p class="service-jp">トリートメント</p>
                     <p class="service-description">髪質改善から日常ケアまで、髪の悩みに合わせたメニュー。</p>
                     <div class="service-price">
                         <span class="price-label">FROM</span>
                         <span class="price-value">¥3,300</span>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-number">05</div>
-                    <h3>EYEBROW</h3>
-                    <p class="service-jp">眉カット</p>
-                    <p class="service-description">顔の印象を左右する眉毛を、バランスよく整えます。</p>
-                    <div class="service-price">
-                        <span class="price-label">FROM</span>
-                        <span class="price-value">¥1,100</span>
                     </div>
                 </div>
                 <div class="service-card">
@@ -187,49 +232,92 @@
                 <div class="staff-card">
                     <div class="staff-image">
                         <div class="staff-placeholder">
-                            <span>STAFF</span>
+                            <span>代表</span>
                         </div>
                     </div>
                     <div class="staff-info">
-                        <h4>山田 太郎</h4>
-                        <p class="staff-role">Top Stylist</p>
-                        <p class="staff-bio">カット技術に定評があり、メンズスタイルのスペシャリスト。</p>
+                        <h4>矢川 誠也</h4>
+                        <p class="staff-name-en">Masaya Yagawa</p>
+                        <p class="staff-role">代表（歴8年）</p>
+                        <p class="staff-bio">お洒落のスタートライン、僕が立たせます</p>
                     </div>
                 </div>
                 <div class="staff-card">
                     <div class="staff-image">
                         <div class="staff-placeholder">
-                            <span>STAFF</span>
+                            <span>代表</span>
                         </div>
                     </div>
                     <div class="staff-info">
-                        <h4>鈴木 一郎</h4>
-                        <p class="staff-role">Director</p>
-                        <p class="staff-bio">15年以上の経験を持つ、サロンのクリエイティブディレクター。</p>
+                        <h4>佐々田 和海</h4>
+                        <p class="staff-name-en">Kazumi Sasada</p>
+                        <p class="staff-role">代表（歴7年）</p>
+                        <p class="staff-bio">お客様のご要望を丁寧にお伺いし、最高の仕上がりをお約束します</p>
                     </div>
                 </div>
                 <div class="staff-card">
                     <div class="staff-image">
                         <div class="staff-placeholder">
-                            <span>STAFF</span>
+                            <span>店長</span>
                         </div>
                     </div>
                     <div class="staff-info">
-                        <h4>佐藤 健</h4>
-                        <p class="staff-role">Stylist</p>
-                        <p class="staff-bio">トレンドカラーと質感調整のエキスパート。</p>
+                        <h4>泉谷 匠</h4>
+                        <p class="staff-name-en">Takumi Izumiya</p>
+                        <p class="staff-role">店長/トップスタイリスト（歴6年）</p>
+                        <p class="staff-bio">本当のカッコイイをお届けします！</p>
                     </div>
                 </div>
                 <div class="staff-card">
                     <div class="staff-image">
                         <div class="staff-placeholder">
-                            <span>STAFF</span>
+                            <span>STYLIST</span>
                         </div>
                     </div>
                     <div class="staff-info">
-                        <h4>田中 翔</h4>
-                        <p class="staff-role">Assistant</p>
-                        <p class="staff-bio">丁寧な接客と確かな技術で成長中の若手スタイリスト。</p>
+                        <h4>さくら</h4>
+                        <p class="staff-name-en">Sakura</p>
+                        <p class="staff-role">スタイリスト（歴5年）</p>
+                        <p class="staff-bio">愛嬌抜群！お客様の魅力を最大限に引き出します</p>
+                    </div>
+                </div>
+                <div class="staff-card">
+                    <div class="staff-image">
+                        <div class="staff-placeholder">
+                            <span>STYLIST</span>
+                        </div>
+                    </div>
+                    <div class="staff-info">
+                        <h4>菊地 亮</h4>
+                        <p class="staff-name-en">Ryo Kikuchi</p>
+                        <p class="staff-role">スタイリスト（歴5年）</p>
+                        <p class="staff-bio">縮毛矯正誰よりも上手いです</p>
+                    </div>
+                </div>
+                <div class="staff-card">
+                    <div class="staff-image">
+                        <div class="staff-placeholder">
+                            <span>STYLIST</span>
+                        </div>
+                    </div>
+                    <div class="staff-info">
+                        <h4>古屋 永遠</h4>
+                        <p class="staff-name-en">Towa Furuya</p>
+                        <p class="staff-role">スタイリスト（歴5年）</p>
+                        <p class="staff-bio">カラー大得意！ハイライトやバレイヤージュなどの特殊カラーはお任せください！</p>
+                    </div>
+                </div>
+                <div class="staff-card">
+                    <div class="staff-image">
+                        <div class="staff-placeholder">
+                            <span>STYLIST</span>
+                        </div>
+                    </div>
+                    <div class="staff-info">
+                        <h4>槐 冬磨</h4>
+                        <p class="staff-name-en">Toma Enji</p>
+                        <p class="staff-role">スタイリスト（歴5年）</p>
+                        <p class="staff-bio">過去最高のクオリティを約束します！</p>
                     </div>
                 </div>
             </div>
@@ -247,13 +335,13 @@
                 <div class="access-info">
                     <div class="info-item">
                         <h4>ADDRESS</h4>
-                        <p>〒150-0042<br>
-                        東京都渋谷区宇田川町36-22<br>
-                        ノア渋谷パートⅡ 3F</p>
+                        <p>〒150-0041<br>
+                        東京都渋谷区神南1丁目20-17<br>
+                        BC神南PROPERTY 5F</p>
                     </div>
                     <div class="info-item">
                         <h4>TEL</h4>
-                        <p>03-6416-5656</p>
+                        <p>03-6453-1877</p>
                     </div>
                     <div class="info-item">
                         <h4>HOURS</h4>
@@ -262,18 +350,24 @@
                     </div>
                     <div class="info-item">
                         <h4>CLOSED</h4>
-                        <p>火曜日</p>
+                        <p>不定休</p>
                     </div>
                     <div class="info-item">
                         <h4>STATION</h4>
-                        <p>JR渋谷駅ハチ公口より徒歩7分<br>
-                        東京メトロ渋谷駅A6出口より徒歩5分</p>
+                        <p>JR渋谷駅ハチ公口より徒歩5分<br>
+                        東京メトロ渋谷駅A12出口より徒歩3分</p>
                     </div>
                 </div>
                 <div class="map-container">
-                    <div class="map-placeholder">
-                        <span>MAP</span>
-                    </div>
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.7479754685!2d139.69875731525834!3d35.659024180198755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b5a1c1b5555%3A0x1234567890abcdef!2z5p2x5Lqs6YO95riL6LC35Yy656We5Y2X77yR5LiB55uu77yS77yQ4oiS77yR77yXIEJD56We5Y2XUFJPUEVSVFkg77yV77yG!5e0!3m2!1sja!2sjp!4v1234567890123" 
+                        width="100%" 
+                        height="500" 
+                        style="border:0; border-radius: 10px;" 
+                        allowfullscreen="" 
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                 </div>
             </div>
         </div>
@@ -287,16 +381,20 @@
                 <span class="title-jp">ご予約・お問い合わせ</span>
             </h2>
             <div class="contact-content">
-                <p class="contact-lead">ご予約はお電話またはHot Pepperからお願いいたします</p>
+                <p class="contact-lead">ご予約はお電話またはWEB予約システムからお願いいたします</p>
                 <div class="contact-methods">
-                    <a href="tel:0364165656" class="contact-button">
+                    <a href="tel:0364531877" class="contact-button">
                         <span>CALL</span>
-                        <span class="contact-detail">03-6416-5656</span>
+                        <span class="contact-detail">03-6453-1877</span>
                     </a>
-                    <a href="#" class="contact-button">
-                        <span>HOT PEPPER</span>
-                        <span class="contact-detail">WEB予約</span>
+                    <a href="https://a2ywf7-google.b-merit.jp/j26zns/web/" target="_blank" class="contact-button">
+                        <span>WEB RESERVE</span>
+                        <span class="contact-detail">24時間受付</span>
                     </a>
+                </div>
+                <div class="reservation-note">
+                    <p>※WEB予約は24時間受け付けております</p>
+                    <p>※当日のご予約はお電話にてお問い合わせください</p>
                 </div>
             </div>
         </div>
@@ -307,7 +405,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <h3>D.D. SHIBUYA</h3>
+                    <h3>D.D.</h3>
                     <p>MENS SALON & BEAUTY</p>
                 </div>
                 <div class="footer-social">
@@ -323,15 +421,15 @@
                             <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </a>
-                    <a href="#" aria-label="Facebook">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 D.D. shibuya. All rights reserved.</p>
+                <p>&copy; 2024 D.D. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">利用規約</a>
+                    <span>|</span>
+                    <a href="#">プライバシーポリシー</a>
+                </div>
             </div>
         </div>
     </footer>
