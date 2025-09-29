@@ -3,12 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="D.D. - 渋谷神南のメンズサロン美容室。お洒落のスタートライン、最高のクオリティをお約束">
-    <meta name="keywords" content="美容室,メンズサロン,渋谷,神南,ヘアサロン,D.D.">
+    <meta name="description" content="D.D. - 渋谷神南のメンズサロン美容室">
     <title>D.D. | 渋谷神南のメンズサロン美容室</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -16,24 +12,23 @@
             box-sizing: border-box;
         }
 
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
         :root {
             --primary-color: #1a1a1a;
-            --secondary-color: #2d2d2d;
             --accent-color: #c9a961;
-            --accent-hover: #b89445;
-            --text-light: #666666;
-            --text-lighter: #999999;
+            --text-light: #666;
             --bg-light: #f8f8f8;
-            --bg-dark: #0a0a0a;
             --white: #ffffff;
-            --border-color: #e0e0e0;
         }
 
         body {
-            font-family: 'Noto Sans JP', sans-serif;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
             color: var(--primary-color);
-            overflow-x: hidden;
         }
 
         .container {
@@ -50,8 +45,7 @@
             right: 0;
             z-index: 1000;
             background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .navbar {
@@ -68,13 +62,10 @@
         }
 
         .logo {
-            font-family: 'Montserrat', sans-serif;
             font-size: 2rem;
             font-weight: 700;
-            letter-spacing: 2px;
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--primary-color);
+            text-decoration: none;
         }
 
         .nav-menu {
@@ -87,27 +78,11 @@
             text-decoration: none;
             color: var(--primary-color);
             font-weight: 500;
-            position: relative;
-            transition: color 0.3s ease;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent-color);
-            transition: width 0.3s ease;
+            transition: color 0.3s;
         }
 
         .nav-link:hover {
             color: var(--accent-color);
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
         }
 
         .hamburger {
@@ -118,51 +93,29 @@
         }
 
         .hamburger span {
-            display: block;
             width: 25px;
             height: 2px;
             background: var(--primary-color);
-            transition: all 0.3s ease;
+            transition: all 0.3s;
         }
 
-        /* Hero Section with Interior Image */
+        /* Hero Section - 画像の代わりにグラデーション背景 */
         .hero {
             height: 100vh;
-            position: relative;
+            background: linear-gradient(135deg, #808080, #a0a0a0);
             display: flex;
             align-items: center;
             justify-content: center;
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAoACgDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAUGB//EACoQAAIBAwMDAgcBAAAAAAAAAAECAwAEEQUSITFBUQYTImFxgZGhsfD/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/EABYRAQEBAAAAAAAAAAAAAAAAAAABAv/aAAwDAQACEQMRAD8AzGi6Np19LdtcxvK0UhVY92Fyp7449qs/0dTqxhtraSCKYqpkZSNoOOnYf3NW9GtZLfSUEyl5XJdyTnkn');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            text-align: center;
+            position: relative;
             color: var(--white);
-            z-index: 1;
-            animation: fadeInUp 1s ease;
+            text-align: center;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero-title {
+        .hero-content h1 {
             font-size: clamp(3rem, 10vw, 6rem);
             font-weight: 300;
             letter-spacing: 0.3em;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
         }
 
         .hero-subtitle {
@@ -173,28 +126,24 @@
         }
 
         .cta-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
+            display: inline-block;
             padding: 1rem 2.5rem;
             background: var(--accent-color);
             color: var(--white);
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(201, 169, 97, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .cta-button:hover {
             transform: translateY(-3px);
-            background: var(--accent-hover);
-            box-shadow: 0 15px 40px rgba(201, 169, 97, 0.4);
+            box-shadow: 0 10px 30px rgba(201, 169, 97, 0.3);
         }
 
         /* About Section */
         .about {
-            padding: 100px 0;
+            padding: 80px 0;
         }
 
         .section-title {
@@ -205,7 +154,6 @@
         .title-en {
             font-size: 2.5rem;
             font-weight: 700;
-            letter-spacing: 3px;
             color: var(--primary-color);
         }
 
@@ -218,153 +166,108 @@
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 3rem;
             align-items: center;
         }
 
         .about-text h3 {
             font-size: 1.8rem;
             margin-bottom: 1.5rem;
-            color: var(--primary-color);
         }
 
         .about-text p {
             color: var(--text-light);
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
+            margin-bottom: 1rem;
         }
 
+        /* 画像プレースホルダー */
         .about-image {
             width: 100%;
             height: 400px;
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
             border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-
-        .about-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #ccc;
         }
 
         /* Services */
         .services {
-            padding: 100px 0;
+            padding: 80px 0;
             background: var(--bg-light);
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
         .service-card {
             background: var(--white);
-            padding: 2.5rem;
+            padding: 2rem;
             border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
         }
 
         .service-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-        }
-
-        .service-card.featured {
-            border: 2px solid var(--accent-color);
-        }
-
-        .service-number {
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            font-size: 3rem;
-            color: var(--accent-color);
-            opacity: 0.1;
-            font-weight: 700;
         }
 
         .service-card h3 {
-            font-size: 1.5rem;
             margin-bottom: 0.5rem;
-        }
-
-        .service-jp {
-            color: var(--text-light);
-            margin-bottom: 1rem;
-        }
-
-        .service-price {
-            margin-top: 1.5rem;
-            padding-top: 1rem;
-            border-top: 1px solid var(--border-color);
         }
 
         .price-value {
             font-size: 1.5rem;
             color: var(--accent-color);
             font-weight: 600;
+            margin-top: 1rem;
         }
 
-        /* Staff Section */
+        /* Staff */
         .staff {
-            padding: 100px 0;
+            padding: 80px 0;
         }
 
         .staff-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
+            gap: 2rem;
         }
 
         .staff-card {
             text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .staff-card:hover {
-            transform: translateY(-10px);
         }
 
         .staff-image {
             width: 200px;
             height: 200px;
-            margin: 0 auto 1.5rem;
+            margin: 0 auto 1rem;
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
             border-radius: 50%;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .staff-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
         }
 
         .staff-info h4 {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-bottom: 0.5rem;
         }
 
         .staff-role {
             color: var(--accent-color);
-            font-weight: 500;
             margin-bottom: 0.5rem;
-        }
-
-        .staff-bio {
-            color: var(--text-light);
-            font-size: 0.95rem;
         }
 
         /* Access */
         .access {
-            padding: 100px 0;
+            padding: 80px 0;
             background: var(--bg-light);
         }
 
@@ -376,13 +279,12 @@
 
         .access-info {
             background: var(--white);
-            padding: 3rem;
+            padding: 2rem;
             border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
         .info-item {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .info-item h4 {
@@ -390,16 +292,18 @@
             margin-bottom: 0.5rem;
         }
 
-        .map-container iframe {
-            width: 100%;
-            height: 500px;
-            border: 0;
+        .map-container {
+            background: #ddd;
             border-radius: 10px;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         /* Contact */
         .contact {
-            padding: 100px 0;
+            padding: 80px 0;
             background: var(--primary-color);
             color: var(--white);
             text-align: center;
@@ -414,15 +318,17 @@
             gap: 2rem;
             justify-content: center;
             margin-top: 3rem;
+            flex-wrap: wrap;
         }
 
         .contact-button {
-            padding: 1.5rem 2.5rem;
+            padding: 1.5rem 2rem;
             border: 2px solid var(--accent-color);
             border-radius: 10px;
             color: var(--white);
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: all 0.3s;
+            min-width: 200px;
         }
 
         .contact-button:hover {
@@ -432,7 +338,7 @@
 
         /* Footer */
         footer {
-            background: var(--bg-dark);
+            background: #0a0a0a;
             color: var(--white);
             padding: 3rem 0;
             text-align: center;
@@ -447,14 +353,24 @@
 
         .footer-social a {
             color: var(--white);
-            transition: color 0.3s ease;
+            text-decoration: none;
+            padding: 0.5rem;
+            border: 1px solid var(--white);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
         }
 
         .footer-social a:hover {
-            color: var(--accent-color);
+            background: var(--accent-color);
+            border-color: var(--accent-color);
         }
 
-        /* Mobile Responsive */
+        /* Mobile */
         @media (max-width: 768px) {
             .nav-menu {
                 display: none;
@@ -464,47 +380,14 @@
                 display: flex;
             }
 
-            .nav-menu.active {
-                display: flex;
-                position: fixed;
-                left: 0;
-                top: 70px;
-                width: 100%;
-                flex-direction: column;
-                background: var(--white);
-                padding: 2rem;
-                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            }
-
-            .hero-title {
-                font-size: 3rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .about-text {
-                padding: 0 1rem;
-            }
-
-            .about-text h3 {
-                font-size: 1.5rem;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-                padding: 0 1rem;
-            }
-
-            .staff-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 2rem;
-            }
-
+            .about-content,
             .access-content {
                 grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
             }
 
             .contact-methods {
@@ -512,8 +395,8 @@
                 align-items: center;
             }
 
-            .contact-button {
-                width: 250px;
+            .staff-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
@@ -523,15 +406,15 @@
     <header>
         <nav class="navbar">
             <div class="nav-container">
-                <div class="logo">D.D.</div>
-                <ul class="nav-menu" id="navMenu">
+                <a href="#" class="logo">D.D.</a>
+                <ul class="nav-menu">
                     <li><a href="#about" class="nav-link">ABOUT</a></li>
                     <li><a href="#services" class="nav-link">MENU</a></li>
                     <li><a href="#staff" class="nav-link">STAFF</a></li>
                     <li><a href="#access" class="nav-link">ACCESS</a></li>
                     <li><a href="#contact" class="nav-link">CONTACT</a></li>
                 </ul>
-                <div class="hamburger" id="hamburger">
+                <div class="hamburger">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -540,18 +423,16 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero">
         <div class="hero-content">
-            <h1 class="hero-title">D.D.</h1>
+            <h1>D.D.</h1>
             <p class="hero-subtitle">MENS SALON & BEAUTY</p>
-            <a href="https://a2ywf7-google.b-merit.jp/j26zns/web/" target="_blank" class="cta-button">
-                WEB予約はこちら
-            </a>
+            <a href="https://a2ywf7-google.b-merit.jp/j26zns/web/" target="_blank" class="cta-button">WEB予約はこちら</a>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About -->
     <section id="about" class="about">
         <div class="container">
             <h2 class="section-title">
@@ -565,13 +446,13 @@
                     <p>経験豊富なスタイリスト陣が、お客様一人ひとりの個性とライフスタイルに合わせた「本当のカッコイイ」をご提案します。</p>
                 </div>
                 <div class="about-image">
-                    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD..." alt="D.D. Interior">
+                    [店内画像]
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- Services -->
     <section id="services" class="services">
         <div class="container">
             <h2 class="section-title">
@@ -579,38 +460,31 @@
                 <div class="title-jp">メニュー</div>
             </h2>
             <div class="services-grid">
-                <div class="service-card featured">
-                    <div class="service-number">01</div>
+                <div class="service-card">
                     <h3>カット＋メニュー相談</h3>
-                    <p class="service-jp">クーポン特別価格</p>
                     <p>当日のメニュー相談も承ります</p>
-                    <div class="service-price">
-                        <span class="price-value">¥6,600〜</span>
-                    </div>
+                    <div class="price-value">¥6,600〜</div>
                 </div>
                 <div class="service-card">
-                    <div class="service-number">02</div>
                     <h3>カラー</h3>
-                    <p class="service-jp">ハイライト・バレイヤージュ対応</p>
                     <p>トレンドカラーから特殊カラーまで</p>
-                    <div class="service-price">
-                        <span class="price-value">¥7,700〜</span>
-                    </div>
+                    <div class="price-value">¥7,700〜</div>
                 </div>
                 <div class="service-card">
-                    <div class="service-number">03</div>
+                    <h3>パーマ</h3>
+                    <p>自然な動きとボリュームを演出</p>
+                    <div class="price-value">¥8,800〜</div>
+                </div>
+                <div class="service-card">
                     <h3>縮毛矯正</h3>
-                    <p class="service-jp">自然なストレートヘア</p>
-                    <p>髪質改善効果も期待できます</p>
-                    <div class="service-price">
-                        <span class="price-value">¥15,400〜</span>
-                    </div>
+                    <p>自然なストレートヘアを実現</p>
+                    <div class="price-value">¥15,400〜</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Staff Section -->
+    <!-- Staff -->
     <section id="staff" class="staff">
         <div class="container">
             <h2 class="section-title">
@@ -619,80 +493,66 @@
             </h2>
             <div class="staff-grid">
                 <div class="staff-card">
-                    <div class="staff-image">
-                        <img src="data:image/jpeg;base64,..." alt="矢川誠也">
-                    </div>
+                    <div class="staff-image">[写真]</div>
                     <div class="staff-info">
                         <h4>矢川 誠也</h4>
                         <p class="staff-role">代表（歴8年）</p>
-                        <p class="staff-bio">お洒落のスタートライン、僕が立たせます</p>
+                        <p>お洒落のスタートライン、僕が立たせます</p>
                     </div>
                 </div>
                 <div class="staff-card">
-                    <div class="staff-image">
-                        <img src="data:image/jpeg;base64,..." alt="佐々田和海">
-                    </div>
+                    <div class="staff-image">[写真]</div>
                     <div class="staff-info">
                         <h4>佐々田 和海</h4>
                         <p class="staff-role">代表（歴7年）</p>
-                        <p class="staff-bio">丁寧な施術を心がけています</p>
+                        <p>丁寧な施術を心がけています</p>
                     </div>
                 </div>
                 <div class="staff-card">
-                    <div class="staff-image">
-                        <img src="data:image/jpeg;base64,..." alt="泉谷匠">
-                    </div>
+                    <div class="staff-image">[写真]</div>
                     <div class="staff-info">
                         <h4>泉谷 匠</h4>
                         <p class="staff-role">店長/トップスタイリスト（歴6年）</p>
-                        <p class="staff-bio">本当のカッコイイをお届けします！</p>
+                        <p>本当のカッコイイをお届けします！</p>
                     </div>
                 </div>
                 <div class="staff-card">
-                    <div class="staff-image">
-                        <img src="data:image/jpeg;base64,..." alt="さくら">
-                    </div>
+                    <div class="staff-image">[写真]</div>
                     <div class="staff-info">
                         <h4>さくら</h4>
                         <p class="staff-role">スタイリスト（歴5年）</p>
-                        <p class="staff-bio">愛嬌抜群！お任せください</p>
+                        <p>愛嬌抜群！お任せください</p>
                     </div>
                 </div>
                 <div class="staff-card">
-                    <div class="staff-image">
-                        <img src="data:image/jpeg;base64,..." alt="菊地亮">
-                    </div>
+                    <div class="staff-image">[写真]</div>
                     <div class="staff-info">
                         <h4>菊地 亮</h4>
                         <p class="staff-role">スタイリスト（歴5年）</p>
-                        <p class="staff-bio">縮毛矯正誰よりも上手いです</p>
+                        <p>縮毛矯正誰よりも上手いです</p>
                     </div>
                 </div>
                 <div class="staff-card">
-                    <div class="staff-image">
-                        <img src="data:image/jpeg;base64,..." alt="古屋永遠">
-                    </div>
+                    <div class="staff-image">[写真]</div>
                     <div class="staff-info">
                         <h4>古屋 永遠</h4>
                         <p class="staff-role">スタイリスト（歴5年）</p>
-                        <p class="staff-bio">カラー大得意！特殊カラーはお任せください！</p>
+                        <p>カラー大得意！特殊カラーはお任せください！</p>
                     </div>
                 </div>
                 <div class="staff-card">
-                    <div class="staff-image">
-                        <img src="data:image/jpeg;base64,..." alt="槐冬磨">
-                    </div>
+                    <div class="staff-image">[写真]</div>
                     <div class="staff-info">
                         <h4>槐 冬磨</h4>
                         <p class="staff-role">スタイリスト（歴5年）</p>
-                        <p class="staff-bio">過去最高のクオリティを約束します！</p>
+                        <p>過去最高のクオリティを約束します！</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Access Section -->
+    <!-- Access -->
     <section id="access" class="access">
         <div class="container">
             <h2 class="section-title">
@@ -713,19 +573,15 @@
                         <h4>営業時間</h4>
                         <p>平日: 11:00 - 21:00<br>土日祝: 10:00 - 20:00</p>
                     </div>
-                    <div class="info-item">
-                        <h4>アクセス</h4>
-                        <p>JR渋谷駅ハチ公口より徒歩5分</p>
-                    </div>
                 </div>
                 <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.7479754685!2d139.69875731525834!3d35.659024180198755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b5a1c1b5555%3A0x1234567890abcdef!2z5p2x5Lqs6YO95riL6LC35Yy656We5Y2X77yR5LiB55uu!5e0!3m2!1sja!2sjp!4v1234567890123" allowfullscreen="" loading="lazy"></iframe>
+                    [地図]
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact -->
     <section id="contact" class="contact">
         <div class="container">
             <h2 class="section-title">
@@ -733,17 +589,14 @@
                 <div class="title-jp">ご予約・お問い合わせ</div>
             </h2>
             <div class="contact-methods">
-                <a href="tel:0364531877" class="contact-button">
-                    <div>CALL</div>
-                    <div>03-6453-1877</div>
-                </a>
                 <a href="https://a2ywf7-google.b-merit.jp/j26zns/web/" target="_blank" class="contact-button">
-                    <div>WEB予約</div>
-                    <div>24時間受付</div>
+                    WEB予約<br>24時間受付
+                </a>
+                <a href="tel:0364531877" class="contact-button">
+                    お電話<br>03-6453-1877
                 </a>
                 <a href="https://beauty.hotpepper.jp/slnH000624598/" target="_blank" class="contact-button">
-                    <div>HOT PEPPER</div>
-                    <div>クーポンあり</div>
+                    HOT PEPPER<br>クーポンあり
                 </a>
             </div>
         </div>
@@ -754,24 +607,43 @@
         <div class="container">
             <h3>D.D.</h3>
             <div class="footer-social">
-                <a href="https://www.instagram.com/dd.shibuya/" target="_blank">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618
-                             </svg>
-                    </a>
-                </div>
+                <a href="https://www.instagram.com/d.d.shibuya?igsh=dmt0aWQ5YnNrOHVj" target="_blank">店舗</a>
+                <a href="https://www.instagram.com/d.d._yagawamasaya?igsh=MXNjNmF0OWJsMjNicA==" target="_blank">矢川</a>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 D.D. All rights reserved.</p>
-                <div class="footer-links">
-                    <a href="#">利用規約</a>
-                    <span>|</span>
-                    <a href="#">プライバシーポリシー</a>
-                </div>
-            </div>
+            <p>&copy; 2024 D.D. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script>
+        // Hamburger menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger?.addEventListener('click', () => {
+            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+            navMenu.style.position = 'fixed';
+            navMenu.style.top = '60px';
+            navMenu.style.left = '0';
+            navMenu.style.right = '0';
+            navMenu.style.flexDirection = 'column';
+            navMenu.style.background = 'white';
+            navMenu.style.padding = '2rem';
+            navMenu.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
