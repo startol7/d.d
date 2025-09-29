@@ -6,73 +6,532 @@
     <meta name="description" content="D.D. - 渋谷神南のメンズサロン美容室。お洒落のスタートライン、最高のクオリティをお約束">
     <meta name="keywords" content="美容室,メンズサロン,渋谷,神南,ヘアサロン,D.D.">
     <title>D.D. | 渋谷神南のメンズサロン美容室</title>
-    <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* 画像を直接埋め込む暫定スタイル */
-        .hero {
-            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQ...');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        
-        .interior-image {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #1a1a1a, #3a3a3a);
-            position: relative;
-            overflow: hidden;
+
+        :root {
+            --primary-color: #1a1a1a;
+            --secondary-color: #2d2d2d;
+            --accent-color: #c9a961;
+            --accent-hover: #b89445;
+            --text-light: #666666;
+            --text-lighter: #999999;
+            --bg-light: #f8f8f8;
+            --bg-dark: #0a0a0a;
+            --white: #ffffff;
+            --border-color: #e0e0e0;
         }
-        
-        .interior-image::before {
-            content: '';
-            position: absolute;
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            line-height: 1.6;
+            color: var(--primary-color);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            bottom: 0;
-            background: repeating-linear-gradient(
-                90deg,
-                transparent,
-                transparent 2px,
-                rgba(255,255,255,0.03) 2px,
-                rgba(255,255,255,0.03) 4px
-            );
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
         }
-        
-        .interior-image::after {
-            content: 'MODERN INTERIOR';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+
+        .navbar {
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
             font-size: 2rem;
-            color: rgba(201, 169, 97, 0.1);
-            letter-spacing: 10px;
             font-weight: 700;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section with Interior Image */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAAoACgDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAUGB//EACoQAAIBAwMDAgcBAAAAAAAAAAECAwAEEQUSITFBUQYTImFxgZGhsfD/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/EABYRAQEBAAAAAAAAAAAAAAAAAAABAv/aAAwDAQACEQMRAD8AzGi6Np19LdtcxvK0UhVY92Fyp7449qs/0dTqxhtraSCKYqpkZSNoOOnYf3NW9GtZLfSUEyl5XJdyTnkn');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: var(--white);
+            z-index: 1;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 10vw, 6rem);
+            font-weight: 300;
+            letter-spacing: 0.3em;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            letter-spacing: 0.2em;
+            color: var(--accent-color);
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2.5rem;
+            background: var(--accent-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(201, 169, 97, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            background: var(--accent-hover);
+            box-shadow: 0 15px 40px rgba(201, 169, 97, 0.4);
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .title-en {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: var(--primary-color);
+        }
+
+        .title-jp {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .about-text p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Services */
+        .services {
+            padding: 100px 0;
+            background: var(--bg-light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .service-card.featured {
+            border: 2px solid var(--accent-color);
+        }
+
+        .service-number {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 3rem;
+            color: var(--accent-color);
+            opacity: 0.1;
+            font-weight: 700;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-jp {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .service-price {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .price-value {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        /* Staff Section */
+        .staff {
+            padding: 100px 0;
+        }
+
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .staff-card {
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .staff-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .staff-image {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .staff-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .staff-info h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .staff-role {
+            color: var(--accent-color);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .staff-bio {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Access */
+        .access {
+            padding: 100px 0;
+            background: var(--bg-light);
+        }
+
+        .access-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .access-info {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .info-item {
+            margin-bottom: 2rem;
+        }
+
+        .info-item h4 {
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 500px;
+            border: 0;
+            border-radius: 10px;
+        }
+
+        /* Contact */
+        .contact {
+            padding: 100px 0;
+            background: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .contact .title-en {
+            color: var(--white);
+        }
+
+        .contact-methods {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 3rem;
+        }
+
+        .contact-button {
+            padding: 1.5rem 2.5rem;
+            border: 2px solid var(--accent-color);
+            border-radius: 10px;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-button:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-dark);
+            color: var(--white);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .footer-social a {
+            color: var(--white);
+            transition: color 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu.active {
+                display: flex;
+                position: fixed;
+                left: 0;
+                top: 70px;
+                width: 100%;
+                flex-direction: column;
+                background: var(--white);
+                padding: 2rem;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-text {
+                padding: 0 1rem;
+            }
+
+            .about-text h3 {
+                font-size: 1.5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                padding: 0 1rem;
+            }
+
+            .staff-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
+            .access-content {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-methods {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-button {
+                width: 250px;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Header -->
-    <header id="header">
+    <header>
         <nav class="navbar">
             <div class="nav-container">
-                <div class="logo">
-                    <span class="logo-text">D.D.</span>
-                    <span class="logo-sub">SHIBUYA</span>
-                </div>
-                <ul class="nav-menu">
+                <div class="logo">D.D.</div>
+                <ul class="nav-menu" id="navMenu">
                     <li><a href="#about" class="nav-link">ABOUT</a></li>
                     <li><a href="#services" class="nav-link">MENU</a></li>
                     <li><a href="#staff" class="nav-link">STAFF</a></li>
                     <li><a href="#access" class="nav-link">ACCESS</a></li>
                     <li><a href="#contact" class="nav-link">CONTACT</a></li>
                 </ul>
-                <div class="hamburger">
+                <div class="hamburger" id="hamburger">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -82,26 +541,13 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-overlay"></div>
+    <section class="hero">
         <div class="hero-content">
-            <h1 class="hero-title">
-                <span class="title-line">D.D.</span>
-                <span class="title-line">SHIBUYA</span>
-            </h1>
+            <h1 class="hero-title">D.D.</h1>
             <p class="hero-subtitle">MENS SALON & BEAUTY</p>
-            <div class="hero-description">
-                <p>お洒落のスタートライン、最高のクオリティをお約束</p>
-            </div>
             <a href="https://a2ywf7-google.b-merit.jp/j26zns/web/" target="_blank" class="cta-button">
-                <span>RESERVE NOW</span>
-                <svg class="button-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <path d="M7 10H13M13 10L10 7M13 10L10 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+                WEB予約はこちら
             </a>
-        </div>
-        <div class="scroll-indicator">
-            <span></span>
         </div>
     </section>
 
@@ -109,41 +555,17 @@
     <section id="about" class="about">
         <div class="container">
             <h2 class="section-title">
-                <span class="title-en">ABOUT</span>
-                <span class="title-jp">私たちについて</span>
+                <div class="title-en">ABOUT</div>
+                <div class="title-jp">私たちについて</div>
             </h2>
             <div class="about-content">
                 <div class="about-text">
-                    <h3 class="about-heading">渋谷神南の隠れ家サロン</h3>
-                    <p class="about-paragraph">
-                        D.D.は、渋谷の中心地でありながら落ち着いた雰囲気の神南エリアに位置する、
-                        こだわりのメンズサロンです。
-                    </p>
-                    <p class="about-paragraph">
-                        経験豊富なスタイリスト陣が、お客様一人ひとりの個性とライフスタイルに合わせた
-                        「本当のカッコイイ」をご提案。トレンドを押さえながらも、
-                        日常で再現しやすいスタイルを心がけています。
-                    </p>
-                    <div class="about-features">
-                        <div class="feature-item">
-                            <span class="feature-number">01</span>
-                            <h4>経験豊富なスタッフ</h4>
-                            <p>5年以上のキャリアを持つプロフェッショナル集団</p>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-number">02</span>
-                            <h4>こだわりの技術</h4>
-                            <p>カット、カラー、パーマ、縮毛矯正まで幅広く対応</p>
-                        </div>
-                        <div class="feature-item">
-                            <span class="feature-number">03</span>
-                            <h4>アクセス良好</h4>
-                            <p>渋谷駅から徒歩圏内、神南の好立地</p>
-                        </div>
-                    </div>
+                    <h3>渋谷神南の隠れ家サロン</h3>
+                    <p>D.D.は、渋谷の中心地でありながら落ち着いた雰囲気の神南エリアに位置する、こだわりのメンズサロンです。</p>
+                    <p>経験豊富なスタイリスト陣が、お客様一人ひとりの個性とライフスタイルに合わせた「本当のカッコイイ」をご提案します。</p>
                 </div>
                 <div class="about-image">
-                    <div class="interior-image"></div>
+                    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD..." alt="D.D. Interior">
                 </div>
             </div>
         </div>
@@ -153,68 +575,35 @@
     <section id="services" class="services">
         <div class="container">
             <h2 class="section-title">
-                <span class="title-en">MENU</span>
-                <span class="title-jp">メニュー</span>
+                <div class="title-en">MENU</div>
+                <div class="title-jp">メニュー</div>
             </h2>
             <div class="services-grid">
                 <div class="service-card featured">
                     <div class="service-number">01</div>
-                    <h3>CUT</h3>
-                    <p class="service-jp">カット＋メニュー相談</p>
-                    <p class="service-description">骨格や髪質に合わせた、お洒落のスタートラインをご提供。当日のメニュー相談も承ります。</p>
+                    <h3>カット＋メニュー相談</h3>
+                    <p class="service-jp">クーポン特別価格</p>
+                    <p>当日のメニュー相談も承ります</p>
                     <div class="service-price">
-                        <span class="price-label">FROM</span>
-                        <span class="price-value">¥6,600</span>
+                        <span class="price-value">¥6,600〜</span>
                     </div>
                 </div>
                 <div class="service-card">
                     <div class="service-number">02</div>
-                    <h3>COLOR</h3>
-                    <p class="service-jp">カラー</p>
-                    <p class="service-description">トレンドカラーから白髪染め、ハイライトやバレイヤージュなどの特殊カラーまで対応。</p>
+                    <h3>カラー</h3>
+                    <p class="service-jp">ハイライト・バレイヤージュ対応</p>
+                    <p>トレンドカラーから特殊カラーまで</p>
                     <div class="service-price">
-                        <span class="price-label">FROM</span>
-                        <span class="price-value">¥7,700</span>
+                        <span class="price-value">¥7,700〜</span>
                     </div>
                 </div>
                 <div class="service-card">
                     <div class="service-number">03</div>
-                    <h3>PERM</h3>
-                    <p class="service-jp">パーマ</p>
-                    <p class="service-description">自然な動きとボリュームを演出。ダメージを最小限に抑えた施術。</p>
+                    <h3>縮毛矯正</h3>
+                    <p class="service-jp">自然なストレートヘア</p>
+                    <p>髪質改善効果も期待できます</p>
                     <div class="service-price">
-                        <span class="price-label">FROM</span>
-                        <span class="price-value">¥8,800</span>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-number">04</div>
-                    <h3>STRAIGHTENING</h3>
-                    <p class="service-jp">縮毛矯正</p>
-                    <p class="service-description">自然なストレートヘアを実現。髪質改善効果も期待できます。</p>
-                    <div class="service-price">
-                        <span class="price-label">FROM</span>
-                        <span class="price-value">¥15,400</span>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-number">05</div>
-                    <h3>TREATMENT</h3>
-                    <p class="service-jp">トリートメント</p>
-                    <p class="service-description">髪質改善から日常ケアまで、髪の悩みに合わせたメニュー。</p>
-                    <div class="service-price">
-                        <span class="price-label">FROM</span>
-                        <span class="price-value">¥3,300</span>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-number">06</div>
-                    <h3>HEAD SPA</h3>
-                    <p class="service-jp">ヘッドスパ</p>
-                    <p class="service-description">頭皮環境を整え、リラクゼーション効果も期待できます。</p>
-                    <div class="service-price">
-                        <span class="price-label">FROM</span>
-                        <span class="price-value">¥4,400</span>
+                        <span class="price-value">¥15,400〜</span>
                     </div>
                 </div>
             </div>
@@ -225,97 +614,76 @@
     <section id="staff" class="staff">
         <div class="container">
             <h2 class="section-title">
-                <span class="title-en">STAFF</span>
-                <span class="title-jp">スタッフ</span>
+                <div class="title-en">STAFF</div>
+                <div class="title-jp">スタッフ</div>
             </h2>
             <div class="staff-grid">
                 <div class="staff-card">
                     <div class="staff-image">
-                        <div class="staff-placeholder">
-                            <span>代表</span>
-                        </div>
+                        <img src="data:image/jpeg;base64,..." alt="矢川誠也">
                     </div>
                     <div class="staff-info">
                         <h4>矢川 誠也</h4>
-                        <p class="staff-name-en">Masaya Yagawa</p>
                         <p class="staff-role">代表（歴8年）</p>
                         <p class="staff-bio">お洒落のスタートライン、僕が立たせます</p>
                     </div>
                 </div>
                 <div class="staff-card">
                     <div class="staff-image">
-                        <div class="staff-placeholder">
-                            <span>代表</span>
-                        </div>
+                        <img src="data:image/jpeg;base64,..." alt="佐々田和海">
                     </div>
                     <div class="staff-info">
                         <h4>佐々田 和海</h4>
-                        <p class="staff-name-en">Kazumi Sasada</p>
                         <p class="staff-role">代表（歴7年）</p>
-                        <p class="staff-bio">お客様のご要望を丁寧にお伺いし、最高の仕上がりをお約束します</p>
+                        <p class="staff-bio">丁寧な施術を心がけています</p>
                     </div>
                 </div>
                 <div class="staff-card">
                     <div class="staff-image">
-                        <div class="staff-placeholder">
-                            <span>店長</span>
-                        </div>
+                        <img src="data:image/jpeg;base64,..." alt="泉谷匠">
                     </div>
                     <div class="staff-info">
                         <h4>泉谷 匠</h4>
-                        <p class="staff-name-en">Takumi Izumiya</p>
                         <p class="staff-role">店長/トップスタイリスト（歴6年）</p>
                         <p class="staff-bio">本当のカッコイイをお届けします！</p>
                     </div>
                 </div>
                 <div class="staff-card">
                     <div class="staff-image">
-                        <div class="staff-placeholder">
-                            <span>STYLIST</span>
-                        </div>
+                        <img src="data:image/jpeg;base64,..." alt="さくら">
                     </div>
                     <div class="staff-info">
                         <h4>さくら</h4>
-                        <p class="staff-name-en">Sakura</p>
                         <p class="staff-role">スタイリスト（歴5年）</p>
-                        <p class="staff-bio">愛嬌抜群！お客様の魅力を最大限に引き出します</p>
+                        <p class="staff-bio">愛嬌抜群！お任せください</p>
                     </div>
                 </div>
                 <div class="staff-card">
                     <div class="staff-image">
-                        <div class="staff-placeholder">
-                            <span>STYLIST</span>
-                        </div>
+                        <img src="data:image/jpeg;base64,..." alt="菊地亮">
                     </div>
                     <div class="staff-info">
                         <h4>菊地 亮</h4>
-                        <p class="staff-name-en">Ryo Kikuchi</p>
                         <p class="staff-role">スタイリスト（歴5年）</p>
                         <p class="staff-bio">縮毛矯正誰よりも上手いです</p>
                     </div>
                 </div>
                 <div class="staff-card">
                     <div class="staff-image">
-                        <div class="staff-placeholder">
-                            <span>STYLIST</span>
-                        </div>
+                        <img src="data:image/jpeg;base64,..." alt="古屋永遠">
                     </div>
                     <div class="staff-info">
                         <h4>古屋 永遠</h4>
-                        <p class="staff-name-en">Towa Furuya</p>
                         <p class="staff-role">スタイリスト（歴5年）</p>
-                        <p class="staff-bio">カラー大得意！ハイライトやバレイヤージュなどの特殊カラーはお任せください！</p>
+                        <p class="staff-bio">カラー大得意！特殊カラーはお任せください！</p>
                     </div>
                 </div>
                 <div class="staff-card">
                     <div class="staff-image">
-                        <div class="staff-placeholder">
-                            <span>STYLIST</span>
-                        </div>
+                        <img src="data:image/jpeg;base64,..." alt="槐冬磨">
                     </div>
                     <div class="staff-info">
                         <h4>槐 冬磨</h4>
-                        <p class="staff-name-en">Toma Enji</p>
                         <p class="staff-role">スタイリスト（歴5年）</p>
                         <p class="staff-bio">過去最高のクオリティを約束します！</p>
                     </div>
@@ -328,46 +696,30 @@
     <section id="access" class="access">
         <div class="container">
             <h2 class="section-title">
-                <span class="title-en">ACCESS</span>
-                <span class="title-jp">アクセス</span>
+                <div class="title-en">ACCESS</div>
+                <div class="title-jp">アクセス</div>
             </h2>
             <div class="access-content">
                 <div class="access-info">
                     <div class="info-item">
-                        <h4>ADDRESS</h4>
-                        <p>〒150-0041<br>
-                        東京都渋谷区神南1丁目20-17<br>
-                        BC神南PROPERTY 5F</p>
+                        <h4>住所</h4>
+                        <p>〒150-0041<br>東京都渋谷区神南1丁目20-17<br>BC神南PROPERTY 5F</p>
                     </div>
                     <div class="info-item">
-                        <h4>TEL</h4>
+                        <h4>電話番号</h4>
                         <p>03-6453-1877</p>
                     </div>
                     <div class="info-item">
-                        <h4>HOURS</h4>
-                        <p>平日: 11:00 - 21:00<br>
-                        土日祝: 10:00 - 20:00</p>
+                        <h4>営業時間</h4>
+                        <p>平日: 11:00 - 21:00<br>土日祝: 10:00 - 20:00</p>
                     </div>
                     <div class="info-item">
-                        <h4>CLOSED</h4>
-                        <p>不定休</p>
-                    </div>
-                    <div class="info-item">
-                        <h4>STATION</h4>
-                        <p>JR渋谷駅ハチ公口より徒歩5分<br>
-                        東京メトロ渋谷駅A12出口より徒歩3分</p>
+                        <h4>アクセス</h4>
+                        <p>JR渋谷駅ハチ公口より徒歩5分</p>
                     </div>
                 </div>
                 <div class="map-container">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.7479754685!2d139.69875731525834!3d35.659024180198755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b5a1c1b5555%3A0x1234567890abcdef!2z5p2x5Lqs6YO95riL6LC35Yy656We5Y2X77yR5LiB55uu77yS77yQ4oiS77yR77yXIEJD56We5Y2XUFJPUEVSVFkg77yV77yG!5e0!3m2!1sja!2sjp!4v1234567890123" 
-                        width="100%" 
-                        height="500" 
-                        style="border:0; border-radius: 10px;" 
-                        allowfullscreen="" 
-                        loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.7479754685!2d139.69875731525834!3d35.659024180198755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b5a1c1b5555%3A0x1234567890abcdef!2z5p2x5Lqs6YO95riL6LC35Yy656We5Y2X77yR5LiB55uu!5e0!3m2!1sja!2sjp!4v1234567890123" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
         </div>
@@ -377,63 +729,31 @@
     <section id="contact" class="contact">
         <div class="container">
             <h2 class="section-title">
-                <span class="title-en">CONTACT</span>
-                <span class="title-jp">ご予約・お問い合わせ</span>
+                <div class="title-en">CONTACT</div>
+                <div class="title-jp">ご予約・お問い合わせ</div>
             </h2>
-            <div class="contact-content">
-                <p class="contact-lead">ご予約はお電話またはWEB予約システムからお願いいたします</p>
-                <div class="contact-methods">
-                    <a href="tel:0364531877" class="contact-button">
-                        <span>CALL</span>
-                        <span class="contact-detail">03-6453-1877</span>
-                    </a>
-                    <a href="https://a2ywf7-google.b-merit.jp/j26zns/web/" target="_blank" class="contact-button">
-                        <span>WEB RESERVE</span>
-                        <span class="contact-detail">24時間受付</span>
-                    </a>
-                </div>
-                <div class="reservation-note">
-                    <p>※WEB予約は24時間受け付けております</p>
-                    <p>※当日のご予約はお電話にてお問い合わせください</p>
-                </div>
+            <div class="contact-methods">
+                <a href="tel:0364531877" class="contact-button">
+                    <div>CALL</div>
+                    <div>03-6453-1877</div>
+                </a>
+                <a href="https://a2ywf7-google.b-merit.jp/j26zns/web/" target="_blank" class="contact-button">
+                    <div>WEB予約</div>
+                    <div>24時間受付</div>
+                </a>
+                <a href="https://beauty.hotpepper.jp/slnH000624598/" target="_blank" class="contact-button">
+                    <div>HOT PEPPER</div>
+                    <div>クーポンあり</div>
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h3>D.D.</h3>
-                    <p>MENS SALON & BEAUTY</p>
-                </div>
-                <div class="footer-social">
-                    <a href="#" aria-label="Instagram">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/>
-                            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
-                            <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
-                        </svg>
-                    </a>
-                    <a href="#" aria-label="Twitter">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 D.D. All rights reserved.</p>
-                <div class="footer-links">
-                    <a href="#">利用規約</a>
-                    <span>|</span>
-                    <a href="#">プライバシーポリシー</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script src="js/main.js"></script>
-</body>
-</html>
+            <h3>D.D.</h3>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/dd.shibuya/" target="_blank">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618
