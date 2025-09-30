@@ -99,10 +99,10 @@
             transition: all 0.3s;
         }
 
-        /* Hero Section - 画像の代わりにグラデーション背景 */
+        /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(135deg, #808080, #a0a0a0);
+            background: #2a2a2a;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -180,17 +180,17 @@
             margin-bottom: 1rem;
         }
 
-        /* 画像プレースホルダー */
         .about-image {
             width: 100%;
             height: 400px;
-            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
             border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: #ccc;
+            overflow: hidden;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         /* Services */
@@ -247,12 +247,14 @@
             width: 200px;
             height: 200px;
             margin: 0 auto 1rem;
-            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
+            overflow: hidden;
+        }
+
+        .staff-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .staff-info h4 {
@@ -293,18 +295,20 @@
         }
 
         .map-container {
-            background: #ddd;
             border-radius: 10px;
-            min-height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            overflow: hidden;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 450px;
+            border: 0;
         }
 
         /* Contact */
         .contact {
             padding: 80px 0;
-            background: var(--primary-color);
+            background: #1a1a1a;
             color: var(--white);
             text-align: center;
         }
@@ -346,28 +350,25 @@
 
         .footer-social {
             display: flex;
-            gap: 1.5rem;
+            gap: 2rem;
             justify-content: center;
             margin: 2rem 0;
         }
 
-        .footer-social a {
+        .social-icon {
             color: var(--white);
             text-decoration: none;
-            padding: 0.5rem;
-            border: 1px solid var(--white);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
+            transition: color 0.3s;
         }
 
-        .footer-social a:hover {
-            background: var(--accent-color);
-            border-color: var(--accent-color);
+        .social-icon:hover {
+            color: var(--accent-color);
+        }
+
+        .social-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
         }
 
         /* Mobile */
@@ -446,7 +447,7 @@
                     <p>経験豊富なスタイリスト陣が、お客様一人ひとりの個性とライフスタイルに合わせた「本当のカッコイイ」をご提案します。</p>
                 </div>
                 <div class="about-image">
-                    [店内画像]
+                    <img src="images/a" alt="D.D. 店内">
                 </div>
             </div>
         </div>
@@ -493,7 +494,9 @@
             </h2>
             <div class="staff-grid">
                 <div class="staff-card">
-                    <div class="staff-image">[写真]</div>
+                    <div class="staff-image">
+                        <img src="images/staff/yagawa.jpg" alt="矢川誠也">
+                    </div>
                     <div class="staff-info">
                         <h4>矢川 誠也</h4>
                         <p class="staff-role">代表（歴8年）</p>
@@ -501,7 +504,9 @@
                     </div>
                 </div>
                 <div class="staff-card">
-                    <div class="staff-image">[写真]</div>
+                    <div class="staff-image">
+                        <img src="images/staff/sasada.jpg" alt="佐々田和海">
+                    </div>
                     <div class="staff-info">
                         <h4>佐々田 和海</h4>
                         <p class="staff-role">代表（歴7年）</p>
@@ -509,7 +514,9 @@
                     </div>
                 </div>
                 <div class="staff-card">
-                    <div class="staff-image">[写真]</div>
+                    <div class="staff-image">
+                        <img src="images/staff/izumiya.jpg" alt="泉谷匠">
+                    </div>
                     <div class="staff-info">
                         <h4>泉谷 匠</h4>
                         <p class="staff-role">店長/トップスタイリスト（歴6年）</p>
@@ -517,7 +524,9 @@
                     </div>
                 </div>
                 <div class="staff-card">
-                    <div class="staff-image">[写真]</div>
+                    <div class="staff-image">
+                        <img src="images/staff/sakura.jpg" alt="さくら">
+                    </div>
                     <div class="staff-info">
                         <h4>さくら</h4>
                         <p class="staff-role">スタイリスト（歴5年）</p>
@@ -525,7 +534,9 @@
                     </div>
                 </div>
                 <div class="staff-card">
-                    <div class="staff-image">[写真]</div>
+                    <div class="staff-image">
+                        <img src="images/staff/kikuchi.jpg" alt="菊地亮">
+                    </div>
                     <div class="staff-info">
                         <h4>菊地 亮</h4>
                         <p class="staff-role">スタイリスト（歴5年）</p>
@@ -533,7 +544,9 @@
                     </div>
                 </div>
                 <div class="staff-card">
-                    <div class="staff-image">[写真]</div>
+                    <div class="staff-image">
+                        <img src="images/staff/furuya.jpg" alt="古屋永遠">
+                    </div>
                     <div class="staff-info">
                         <h4>古屋 永遠</h4>
                         <p class="staff-role">スタイリスト（歴5年）</p>
@@ -541,7 +554,9 @@
                     </div>
                 </div>
                 <div class="staff-card">
-                    <div class="staff-image">[写真]</div>
+                    <div class="staff-image">
+                        <img src="images/staff/enji.jpg" alt="槐冬磨">
+                    </div>
                     <div class="staff-info">
                         <h4>槐 冬磨</h4>
                         <p class="staff-role">スタイリスト（歴5年）</p>
@@ -575,7 +590,11 @@
                     </div>
                 </div>
                 <div class="map-container">
-                    [地図]
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.716!2d139.6989!3d35.6598!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDM5JzM1LjMiTiAxMznCsDQxJzU2LjAiRQ!5e0!3m2!1sja!2sjp!4v1234567890"
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
                 </div>
             </div>
         </div>
@@ -607,30 +626,22 @@
         <div class="container">
             <h3>D.D.</h3>
             <div class="footer-social">
-                <a href="https://www.instagram.com/d.d.shibuya?igsh=dmt0aWQ5YnNrOHVj" target="_blank">店舗</a>
-                <a href="https://www.instagram.com/d.d._yagawamasaya?igsh=MXNjNmF0OWJsMjNicA==" target="_blank">矢川</a>
+                <a href="https://www.instagram.com/d.d.shibuya?igsh=dmt0aWQ5YnNrOHVj" target="_blank" class="social-icon" aria-label="店舗Instagram">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM12 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.44-.645 1.44-1.44-.644-1.44-1.44-1.44z"/>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/d.d._yagawamasaya?igsh=MXNjNmF0OWJsMjNicA==" target="_blank" class="social-icon" aria-label="矢川Instagram">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM12 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.44-.645 1.44-1.44-.644-1.44-1.44-1.44z"/>
+                    </svg>
+                </a>
             </div>
             <p>&copy; 2024 D.D. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Hamburger menu toggle
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
-
-        hamburger?.addEventListener('click', () => {
-            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
-            navMenu.style.position = 'fixed';
-            navMenu.style.top = '60px';
-            navMenu.style.left = '0';
-            navMenu.style.right = '0';
-            navMenu.style.flexDirection = 'column';
-            navMenu.style.background = 'white';
-            navMenu.style.padding = '2rem';
-            navMenu.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
-        });
-
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
